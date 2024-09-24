@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Timetable</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+          <!-- HEADER -->
+    <header>
+        <nav>
+            <ul>
+            </div>
+              <div class="navlinks">
+                <div class="nav-logo"></div>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Supervisor</a>
+                    <div class="dropdown-content">
+                        <button id="supervisorBtn">Supervisors</button>
+                    </div>
+                </li>
+            </div>
+                <!-- Logout Button -->
+                <li style="float: right;">
+                    <button id="logoutBtn" class="logout-button">Logout</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="body-wrapper">
+    <!-- SUBJECT TIME TABLE -->
+    <div class="overlay">
+        <div class="timetable-container">
+            <h2>Exam Timetable</h2>
+            <table>
+                <tr>
+                    <th>Courses</th>
+                    <th>Time</th>
+                    <th>Day</th>
+                </tr>
+                <tr>
+                    {% for supervisor in supervisors %}
+                    <td>{{supervisor.Subject}}</td>
+                    <td>{{supervisor.Time}}</td>
+                    <td>{{supervisor.Date}}</td>
+                    {% endfor %}
+                </tr>
+               
+                <!-- Add more subjects -->
+            </table>
+        </div>
+    </div>
+    </div>
+  
+    <script src="{% static 'app.js' %}"></script>
+</body>
+</html>
